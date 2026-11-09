@@ -1,0 +1,99 @@
+/* Design tokens — <project>. Components consume semantic tokens only.
+   Replace every value; keep the role names. Run contrast-check.mjs after editing. */
+:root {
+  /* ---- Primitives (example values — replace) ---- */
+  --ink-950: #121110;
+  --ink-700: #3d3a36;
+  --ink-500: #6b665f;
+  --paper-50: #f5f2ec;
+  --paper-100: #ebe6dc;
+  --paper-200: #d9d2c4;
+  --accent-500: #c2410c;
+
+  /* ---- Color roles ---- */
+  --color-bg: var(--paper-50);
+  --color-bg-alt: var(--ink-950);
+  --color-surface: var(--paper-100);
+  --color-text: var(--ink-950);
+  --color-text-muted: var(--ink-700);
+  --color-text-inverse: var(--paper-50);
+  --color-border: var(--paper-200);        /* decorative hairlines/dividers only */
+  --color-border-control: var(--ink-500);  /* input/control outlines: must be >= 3:1 (WCAG 1.4.11) */
+  --color-accent: var(--accent-500);
+  --color-focus: var(--accent-500);
+  --color-danger: #b42318;
+  --color-success: #067647;
+
+  /* ---- Typography ---- */
+  --font-display: "Display Family", "Times New Roman", serif;
+  --font-body: "Text Family", system-ui, sans-serif;
+  --font-mono: "Mono Family", ui-monospace, monospace;
+  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-0: clamp(1rem, 0.96rem + 0.19vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.12rem + 0.37vw, 1.5rem);
+  --step-2: clamp(1.44rem, 1.29rem + 0.66vw, 2rem);
+  --step-3: clamp(1.728rem, 1.47rem + 1.13vw, 2.666rem);
+  --step-4: clamp(2.074rem, 1.65rem + 1.87vw, 3.554rem);
+  --step-display: clamp(3rem, 1.5rem + 8vw, 10rem);
+  --leading-tight: 0.92;
+  --leading-heading: 1.1;
+  --leading-body: 1.55;
+  --tracking-display: -0.04em;
+  --tracking-label: 0.08em;
+  --measure: 65ch;
+
+  /* ---- Space ---- */
+  --space-3xs: clamp(0.25rem, 0.23rem + 0.09vw, 0.3125rem);
+  --space-2xs: clamp(0.5rem, 0.47rem + 0.19vw, 0.625rem);
+  --space-xs: clamp(0.75rem, 0.7rem + 0.28vw, 0.9375rem);
+  --space-s: clamp(1rem, 0.93rem + 0.37vw, 1.25rem);
+  --space-m: clamp(1.5rem, 1.4rem + 0.56vw, 1.875rem);
+  --space-l: clamp(2rem, 1.86rem + 0.74vw, 2.5rem);
+  --space-xl: clamp(3rem, 2.79rem + 1.11vw, 3.75rem);
+  --space-2xl: clamp(4rem, 3.5rem + 2.5vw, 6rem);
+  --space-3xl: clamp(6rem, 4.9rem + 5vw, 10rem);
+  --space-section: clamp(6rem, 3rem + 12vw, 16rem);
+
+  /* ---- Grid ---- */
+  --cols: 12;
+  --gutter: var(--space-s);
+  --margin: var(--space-m);
+  --max-width: 1680px;
+
+  /* ---- Shape & depth ---- */
+  --radius-s: 2px;
+  --radius-m: 6px;
+  --radius-pill: 999px;
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.06);
+  --border-hair: 1px solid var(--color-border);
+
+  /* ---- Motion ---- */
+  --dur-fast: 180ms;
+  --dur-base: 400ms;
+  --dur-slow: 900ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---- Layers ---- */
+  --z-header: 50;
+  --z-overlay: 90;
+  --z-modal: 100;
+}
+
+@media (max-width: 1023px) { :root { --cols: 8; } }
+@media (max-width: 639px) { :root { --cols: 4; } }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-base: 0ms; --dur-slow: 0ms; }
+}
+
+/* Contrast pairs to verify (read by contrast-check.mjs):
+   @contrast --color-text on --color-bg
+   @contrast --color-text-muted on --color-bg
+   @contrast --color-text on --color-surface
+   @contrast --color-text-inverse on --color-bg-alt
+   @contrast --color-accent on --color-bg large
+   @contrast --color-focus on --color-bg ui
+   @contrast --color-border-control on --color-bg ui
+   (--color-border is decorative; not required to meet 3:1)
+*/

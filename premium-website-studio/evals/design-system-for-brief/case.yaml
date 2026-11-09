@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: design-system-for-brief
+expected_outcome: |
+  A creative direction with a concept and explicit anti-patterns, plus tokens.css with semantic CSS variables for type (fluid clamp), color roles, spacing scale, grid and motion, with fonts chosen for the concept and licensing addressed, and contrast verified.

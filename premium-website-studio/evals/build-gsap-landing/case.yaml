@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: build-gsap-landing
+expected_outcome: |
+  A working single-page site in site/ with an original concept, token-based CSS, GSAP + ScrollTrigger animations with a reduced-motion path, working links/controls, and evidence it was checked at desktop and mobile widths.
